@@ -1,0 +1,4 @@
+segment,customers,campaign,message_or_offer,primary_kpi,guardrail
+Lapsed occasional customers,1907,Low-cost reactivation pilot,Test a small email group and suppress nonresponders after the test.,Incremental reactivation net of contact cost,Do not spend heavily on low-response customers without evidence.
+Active developing customers,1654,Nurture repeat purchasing,Relevant product follow-up; use observed basket history cautiously.,Incremental 30-day repeat-purchase rate,Interest is not inferred beyond observed purchases.
+Loyal high-value customers,703,VIP recognition and cross-sell,Early access or relevant bundles; test non-discount benefits first.,Incremental contribution per eligible customer,Do not subsidize purchases that would occur anyway.

@@ -1,0 +1,37 @@
+{
+  "raw_rows": 541909,
+  "eligible_lines": 378508,
+  "customers": 4264,
+  "orders": 17756,
+  "as_of": "2011-12-10",
+  "window_start": "2010-12-10",
+  "window_days": 365,
+  "selected_k": 3,
+  "silhouette_sampled": 0.34025801762110985,
+  "gross_purchase_value_gbp": 8576552.524,
+  "seed_ari_min": 0.9840123757789314,
+  "capped_99pct_ari": 0.917189435469763,
+  "elbow_k_range_1_to_8": 3,
+  "baseline_tiers": 6,
+  "baseline_cutoffs": {
+    "Recency": [
+      13.0,
+      32.0,
+      69.0,
+      171.0
+    ],
+    "Frequency": [
+      1.0,
+      2.0,
+      3.0,
+      5.0
+    ],
+    "Monetary": [
+      243.68,
+      480.75,
+      924.8,
+      2024.7880000000005
+    ]
+  },
+  "data_sha256": "04c43811f0568c19f1b10cde30ad87d4e832229202ae0994d29046d4cfd4d015"
+}

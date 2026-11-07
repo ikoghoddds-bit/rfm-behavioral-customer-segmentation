@@ -1,0 +1,10 @@
+step,remaining,removed
+Raw rows,541909,0
+Remove exact duplicate lines,536641,5268
+Remove invalid dates/amounts,536641,0
+Remove missing/invalid customer IDs,401604,135037
+Remove missing invoice/product IDs,401604,0
+Exclude cancellation invoices,392732,8872
+Exclude nonpositive quantities,392732,0
+Exclude nonpositive prices,392692,40
+Apply historical observation window,378508,14184

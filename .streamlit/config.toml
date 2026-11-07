@@ -1,0 +1,8 @@
+# Readable project default; native Streamlit styles keep both themes coherent.
+[theme]
+base = "light"
+primaryColor = "#087E8B"
+backgroundColor = "#F5F8FA"
+secondaryBackgroundColor = "#E8EFF3"
+textColor = "#172B3A"
+font = "sans serif"
