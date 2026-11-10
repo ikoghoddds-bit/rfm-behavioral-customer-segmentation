@@ -52,3 +52,32 @@ def test_schema_and_invalid_inputs():
         with pytest.raises(ValueError):validate_rfm(bad)
     with pytest.raises(ValueError):validate_rfm(d.drop(columns='Monetary'))
     with pytest.raises(ValueError):validate_rfm(pd.concat([d.head(1)]*2))
+
+def test_filtered_profile_and_chart_zoom_are_consistent():
+    from src.presentation import filter_audience,summarize_audience,scatter_audience
+    d=pd.read_csv(ROOT/'outputs/customer_segments.csv',dtype={'CustomerID':'string'})
+    segments=['Loyal high-value customers','Active developing customers']
+    view=filter_audience(d,segments,d.baseline_tier.unique().tolist(),'Germany')
+    s=summarize_audience(view)
+    assert len(view)>0 and s.customers.sum()==len(view)
+    assert s.purchase_value.sum()==pytest.approx(view.Monetary.sum())
+    assert s.customer_share.sum()==pytest.approx(1) and s.value_share.sum()==pytest.approx(1)
+    assert set(s.segment).issubset(segments)
+    plotted,cut,hidden=scatter_audience(view,True)
+    assert len(plotted)+hidden==len(view) and hidden>0 and plotted.Monetary.max()<=cut
+    assert len(view)==len(filter_audience(d,segments,d.baseline_tier.unique().tolist(),'Germany'))
+    assert summarize_audience(view.iloc[:0]).empty
+
+def test_chart_colors_and_title_case_labels():
+    from src.presentation import summarize_audience,title_case,SEGMENT_COLORS
+    from src.dashboard_charts import count_chart,share_chart,scatter_chart
+    assert title_case('RFM & behavioral customer segmentation')=='RFM & Behavioral Customer Segmentation'
+    assert title_case('K-Means on a CSV')=='K-Means On A CSV'
+    d=pd.read_csv(ROOT/'outputs/customer_segments.csv',dtype={'CustomerID':'string'})
+    s=summarize_audience(d)
+    for chart in [count_chart(s),share_chart(s),scatter_chart(d.head(50))]:
+        spec=chart.to_dict()
+        text=json.dumps(spec)
+        assert all(color in text for color in SEGMENT_COLORS.values())
+        assert 'Customer Segment' in text
+    assert scatter_chart(d.head(50),True).to_dict()['encoding']['y']['scale']['type']=='log'

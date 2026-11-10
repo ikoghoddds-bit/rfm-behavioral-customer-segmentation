@@ -1,4 +1,4 @@
-# Validation record
+# Validation Record
 
 November 6, 2026 · Python 3.12 · Project 2
 
@@ -14,3 +14,10 @@ November 6, 2026 · Python 3.12 · Project 2
 - Archive paths, CRC and required deliverables validated before saving.
 
 GitHub workflows are prepared but have not run remotely. Windows batch launchers are provided with direct Python 3.12 environment commands; this Linux environment cannot execute Windows batch files. No external repository, hosted deployment or marketing campaign was created. Local and internal clustering checks do not establish future population stability, conversion uplift or production readiness.
+
+
+## Dashboard Enhancement Checks — 10 November 2026
+
+Nine tests pass. Added tests verify filtered profile totals/shares, display-only outlier zoom, consistent chart palettes and log-axis definitions, Title Case/acronym preservation, segment-card drill-down, filter reset/select/clear, empty-audience handling and navigation across all workspaces. Streamlit AppTest verifies the page logic; Altair validates generated chart specifications.
+
+Publication plots were regenerated from frozen assignments and visually inspected; model/data/output hashes confirm no change to the fitted model, CSV assignments or quantitative analysis. Saved notebook headings and its embedded publication figure were updated. The browser preview environment could not reach the local server, so an interactive browser screenshot was not captured. The user's original screenshot was explicitly zoomed out; no normal-view font-size defect was inferred from it.

@@ -6,3 +6,4 @@ backgroundColor = "#F5F8FA"
 secondaryBackgroundColor = "#E8EFF3"
 textColor = "#172B3A"
 font = "sans serif"
+baseFontSize = 16

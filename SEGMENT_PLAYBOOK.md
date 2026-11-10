@@ -1,4 +1,4 @@
-# Segment activation playbook
+# Segment Activation Playbook
 
 ## Goal
 
@@ -12,7 +12,7 @@ Replace undifferentiated contact with distinct, measurable engagement hypotheses
 | Manual high-value-at-risk overlay | Personalized win-back or service support | Incremental reactivation/contribution | Review return-adjusted value and economics before high-touch support |
 | Manual newly observed overlay | Onboarding and a second-order experiment | Second-purchase rate in 30 days | Window-relative first observation does not mean first-ever customer |
 
-## Activation steps
+## Activation Steps
 
 1. Refresh the observation window using current, appropriately authorized data; validate identity and contact permissions.
 2. Review named cluster profiles and the manual RFM overlays. Export the chosen audience and deduplicate customers across proposed campaigns.
@@ -21,7 +21,7 @@ Replace undifferentiated contact with distinct, measurable engagement hypotheses
 5. Account for multiple segment comparisons; inspect confidence intervals and practical size, not only statistical significance.
 6. Scale only where incremental economics support it. Monitor unsubscribes, complaints, return rates, drift and fatigue.
 
-## Additional lenses
+## Additional Lenses
 
 Product taxonomy could make affinity more meaningful. Opt-in engagement could distinguish interested-but-inactive shoppers from disengaged ones. Authorized household/lifecycle data could add a different unit of analysis. Validate consent, fairness and incremental usefulness; country, basket size and top SKU cannot establish these attributes.
 

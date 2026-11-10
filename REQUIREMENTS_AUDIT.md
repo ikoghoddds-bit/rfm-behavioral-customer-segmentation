@@ -1,4 +1,4 @@
-# Project 2 requirements audit
+# Project 2 Requirements Audit
 
 | Brief / screenshot requirement | Implementation | Evidence |
 |---|---|---|
@@ -16,3 +16,24 @@
 | GitHub-ready portfolio | Executed notebook, test suite, workflows, license, guide and bundled evidence | Repository root |
 
 Elbow is an explicit heuristic, not proof of a unique natural k. Silhouette favors two more strongly than three and is disclosed. Historical purchase value is not net revenue/profit, and no conversion gain or campaign outcome is claimed.
+
+
+## Dashboard Enhancement Mapping
+
+| Recommendation | Implementation |
+|---|---|
+| Account for screenshot zoom | Explicit 16 px default, restrained typography, no assumption that the zoomed-out screenshot represented normal viewing |
+| Lead with a decision | Concentration insight and action/KPI cards before detailed tables |
+| Business-friendly profiles | Seven-column summary, percentage/GBP/day formats, definition tooltips, expandable behavioral fields |
+| Horizontal readable charts | Full segment names and direct count/share labels |
+| Stable segment identity | Teal loyal, blue developing, amber lapsed across cards, bars, scatter and publication figure |
+| Value versus audience share | Paired horizontal customer/purchase-value share comparison |
+| Outlier visibility | Logarithmic default, linear option, detailed hover and optional display-only 99% zoom |
+| Filter consistency | KPIs, insights, profiles, charts, cards, baseline tables and exports use the selected audience |
+| Benchmark separation | Explicit full-population expander and model-evidence scope |
+| Better audience controls | Wider desktop sidebar, short labels, Select All, Clear and Reset |
+| Immediate activation handoff | Segment-card View Audience drill-down and direct export |
+| Historical context | Prominent snapshot/lookback/GBP band |
+| Capitalized headings | Title Case UI headings, table labels, axes, chart titles, document and notebook headings; acronyms retained |
+
+Customer assignment, fitted model and source CSV schemas are unchanged. Campaign actions remain hypotheses requiring controlled validation.

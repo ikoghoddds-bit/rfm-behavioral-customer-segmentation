@@ -1,10 +1,10 @@
-# Publish Project 2 on GitHub
+# Publish Project 2 On GitHub
 
 Suggested repository: `rfm-behavioral-customer-segmentation`  
 Description: “Manual RFM scoring and K-Means customer segmentation with elbow analysis, named audiences, behavioral profiles and an actionable campaign playbook.”  
 Topics: python, customer-segmentation, rfm-analysis, kmeans, unsupervised-learning, marketing-analytics, streamlit, portfolio-project.
 
-## Upload the whole project
+## Upload The Whole Project
 
 Create an empty public repository. Extract the ZIP and upload the **contents of `rfm-customer-segmentation` at repository root**, including `.github`, `.streamlit`, `.gitignore`, compressed data, outputs and executed notebook. Do not upload only the ZIP or nest the project one level below the repository root. Do not upload `.venv312`.
 
@@ -19,7 +19,7 @@ git push -u origin main
 
 For an existing repository, use its normal commit workflow rather than reinitializing it. No external repository has been created or pushed by this deliverable.
 
-## Recruiter walkthrough
+## Recruiter Walkthrough
 
 1. Start with the business question and the three named profiles in README.
 2. Inspect the manual RFM baseline, then the elbow evidence; explain why a higher k=2 silhouette does not uniquely determine the business segmentation.

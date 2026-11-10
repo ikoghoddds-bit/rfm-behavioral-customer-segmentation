@@ -1,4 +1,4 @@
-# Dataset license and attribution
+# Dataset License And Attribution
 
 Chen, D. (2015). Online Retail [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33 . Official page: https://archive.ics.uci.edu/dataset/352/online+retail .
 

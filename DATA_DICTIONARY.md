@@ -1,8 +1,8 @@
-# Data dictionary and provenance
+# Data Dictionary And Provenance
 
 Source: Chen, D. (2015). Online Retail [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33 . Dataset 352, CC BY 4.0. The original workbook is converted to compressed CSV without filtering. Source and converted hashes are in `data/source.json`.
 
-## Transaction columns
+## Transaction Columns
 
 | Field | Meaning |
 |---|---|
@@ -16,7 +16,7 @@ Source: Chen, D. (2015). Online Retail [Dataset]. UCI Machine Learning Repositor
 | Country | Recorded country, not demographic or household information |
 | LineRevenue | Derived Quantity × UnitPrice for eligible lines |
 
-## Customer outputs
+## Customer Outputs
 
 | Field | Meaning |
 |---|---|

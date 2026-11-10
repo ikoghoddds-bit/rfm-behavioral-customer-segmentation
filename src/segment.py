@@ -13,6 +13,7 @@ from sklearn.preprocessing import FunctionTransformer,StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.metrics import silhouette_score,adjusted_rand_score
 from src.features import clean_transactions,compute_rfm,fit_baseline,RFM
+from src.presentation import title_case,SEGMENT_COLORS
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'outputs';SEED=42
 
 def elbow_k(ks,inertias):
@@ -127,19 +128,25 @@ def main():
     ax[0,1].plot(elbow.k.iloc[1:],elbow.silhouette_sampled.iloc[1:],'o-',color='#087e8b');ax[0,1].set(title='Sampled silhouette: supporting evidence',xlabel='k',ylabel='Silhouette')
     pca=PCA(n_components=2,random_state=SEED);coords=pca.fit_transform(z)
     for c in range(chosen):
-        mask=customers.cluster_id==c;ax[0,2].scatter(coords[mask,0],coords[mask,1],s=6,alpha=.45,label=names[c])
+        mask=customers.cluster_id==c;ax[0,2].scatter(coords[mask,0],coords[mask,1],s=6,alpha=.45,label=title_case(names[c]),color=SEGMENT_COLORS.get(names[c]))
     ax[0,2].set(title='PCA view of scaled log-RFM',xlabel='PC1',ylabel='PC2')
     ax[0,2].legend(fontsize=7,loc='upper left',markerscale=2)
     # Plot axes use plain-English names; PCA colors are exploration, not the
     # output naming scheme. 2D projections can hide overlap in three dimensions.
-    profiles.set_index('segment').customers.sort_values().plot.barh(ax=ax[1,0],color='#087e8b');ax[1,0].set(title='Customers per named segment',ylabel='')
-    profiles.set_index('segment').value_share.sort_values().plot.barh(ax=ax[1,1],color='#b86b05');ax[1,1].set(title='Share of historical purchase value',ylabel='')
+    counts=profiles.set_index('segment').customers.sort_values()
+    counts.plot.barh(ax=ax[1,0],color=[SEGMENT_COLORS.get(n,'#087e8b') for n in counts.index]);ax[1,0].set(title='Customers per named segment',ylabel='')
+    shares=profiles.set_index('segment').value_share.sort_values()
+    shares.plot.barh(ax=ax[1,1],color=[SEGMENT_COLORS.get(n,'#b86b05') for n in shares.index]);ax[1,1].set(title='Share of historical purchase value',ylabel='')
     for axis in [ax[1,0],ax[1,1]]:
-        axis.set_yticks(axis.get_yticks(),[textwrap.fill(t.get_text(),22) for t in axis.get_yticklabels()])
+        axis.set_yticks(axis.get_yticks(),[textwrap.fill(title_case(t.get_text()),22) for t in axis.get_yticklabels()])
     med=profiles.set_index('segment')[[c+'_median' for c in RFM]];normalized=(med-med.min())/(med.max()-med.min()).replace(0,1)
-    ax[1,2].imshow(normalized,aspect='auto',cmap='YlGnBu',vmin=0,vmax=1);ax[1,2].set(xticks=range(3),xticklabels=RFM,yticks=range(chosen),yticklabels=[textwrap.fill(t,22) for t in med.index],title='Median profiles in original units')
+    ax[1,2].imshow(normalized,aspect='auto',cmap='YlGnBu',vmin=0,vmax=1);ax[1,2].set(xticks=range(3),xticklabels=RFM,yticks=range(chosen),yticklabels=[textwrap.fill(title_case(t),22) for t in med.index],title='Median profiles in original units')
     for i in range(chosen):
         for j in range(3):ax[1,2].text(j,i,f'{med.iloc[i,j]:,.0f}',ha='center',va='center',color='white' if normalized.iloc[i,j]>.55 else '#172b3a',fontsize=9)
+    for axis in ax.flat:
+        axis.set_title(title_case(axis.get_title()))
+        axis.set_xlabel(title_case(axis.get_xlabel()))
+        axis.set_ylabel(title_case(axis.get_ylabel()))
     fig.savefig(OUT/'segmentation_evidence.png',dpi=150);plt.close(fig)
     (OUT/'environment.json').write_text(json.dumps({'python':platform.python_version(),'packages':{p:importlib.metadata.version(p) for p in ['numpy','pandas','scikit-learn','scipy','matplotlib','joblib','streamlit','openpyxl','pytest','nbformat']}},indent=2))
     print(json.dumps(metrics,indent=2));return metrics
